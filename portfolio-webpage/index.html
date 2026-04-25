@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adithi Jayaraman — Robotics Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F7F4EF;
+      --ink: #1A1A1A;
+      --muted: #6B6B6B;
+      --accent: #C96A3A;
+      --accent2: #3A6DC9;
+      --border: #E0DDD8;
+      --card: #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(247,244,239,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem; letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 4rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 100px; padding: 0.35rem 1rem;
+      margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 1.0; font-weight: 400;
+      opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+    }
+    .hero-name em { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      margin-top: 2rem; max-width: 520px;
+      font-size: 1.05rem; color: var(--muted); line-height: 1.75;
+      opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+    }
+    .hero-cta {
+      margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      border-radius: 100px; font-size: 0.9rem; font-weight: 500;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+    .btn-primary { background: var(--ink); color: var(--cream); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 4rem;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-scroll::before {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--muted);
+    }
+
+    .hero-badge {
+      position: absolute; right: 4rem; bottom: 4rem;
+      width: 120px; height: 120px;
+      border-radius: 50%; border: 1.5px dashed var(--border);
+      display: flex; align-items: center; justify-content: center;
+      animation: spin 20s linear infinite;
+    }
+    .hero-badge span {
+      font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); text-align: center; line-height: 1.6;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400; line-height: 1.15;
+      margin-bottom: 3rem;
+    }
+    /* ─── ABOUT ─── */
+    #about { border-top: 1px solid var(--border); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img, .about-img-placeholder {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      border-radius: 4px;
+    }
+    .about-img-placeholder {
+      background: var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em;
+    }
+    .about-tag {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: var(--accent); color: #fff;
+      padding: 1rem 1.5rem; border-radius: 4px;
+      font-size: 0.8rem; font-weight: 500; line-height: 1.5;
+    }
+    .about-text p { font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.5rem; }
+    .about-text strong { color: var(--ink); }
+    .skills-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .chip {
+      padding: 0.4rem 1rem; border-radius: 100px;
+      border: 1px solid var(--border); font-size: 0.8rem;
+      background: var(--card); transition: all 0.2s;
+    }
+    .chip:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+    /* ─── PROJECTS ─── */
+    #projects { background: var(--ink); color: var(--cream); }
+    #projects .section-label { color: var(--accent); }
+    #projects .section-title { color: var(--cream); }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px; background: #333;
+    }
+    .project-card {
+      background: var(--ink);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .project-card:hover { background: #1e1e1e; }
+    .project-card:hover .project-arrow { opacity: 1; transform: translate(0,0); }
+    .project-card:hover .project-thumb { transform: scale(1.04); }
+
+    .project-thumb {
+      width: 100%; aspect-ratio: 16/9; object-fit: cover;
+      border-radius: 3px; margin-bottom: 1.75rem;
+      background: #2a2a2a;
+      transition: transform 0.45s cubic-bezier(.25,.8,.25,1);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .project-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .project-thumb-placeholder {
+      width: 100%; height: 100%; background: #2a2a2a;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; letter-spacing: 0.1em; color: #555;
+    }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .project-tag {
+      font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 100px;
+      border: 1px solid #444; color: #aaa;
+    }
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.75rem;
+    }
+    .project-desc { font-size: 0.9rem; color: #888; line-height: 1.7; }
+    .project-arrow {
+      position: absolute; top: 2.5rem; right: 2.5rem;
+      opacity: 0; transform: translate(-6px, 6px);
+      transition: all 0.3s; font-size: 1.4rem; color: var(--accent);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { border-top: 1px solid var(--border); }
+    .exp-list { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 2rem; padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding-left 0.3s;
+    }
+    .exp-item:hover { padding-left: 1rem; }
+    .exp-date { font-size: 0.8rem; color: var(--muted); padding-top: 0.3rem; }
+    .exp-role { font-size: 1.1rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .exp-company { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.75rem; }
+    .exp-body { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    #contact .section-title { margin-bottom: 1rem; }
+    .contact-sub { font-size: 1rem; color: var(--muted); margin-bottom: 3rem; }
+    .contact-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      text-decoration: none; color: var(--ink); font-size: 0.95rem;
+      font-weight: 500; padding-bottom: 0.2rem;
+      border-bottom: 1.5px solid var(--ink);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 2rem 4rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.8rem; color: var(--muted);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── CURSOR ─── */
+    .cursor {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); pointer-events: none;
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+      mix-blend-mode: multiply;
+    }
+    .cursor-ring {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid var(--accent); pointer-events: none;
+      position: fixed; top: 0; left: 0; z-index: 9998;
+      transform: translate(-50%,-50%);
+      transition: left 0.12s ease, top 0.12s ease, width 0.3s, height 0.3s;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+      #hero { padding: 7rem 1.5rem 4rem; }
+      .about-grid, .projects-grid { grid-template-columns: 1fr; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .hero-badge { display: none; }
+      .nav-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">AJ</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Robotics Engineer · Open to Work · Jun 2026</div>
+    <h1 class="hero-name">Adithi<br><em>Jayaraman</em></h1>
+    <p class="hero-sub">
+      Robotics researcher and engineer passionate about pushing the boundaries of autonomous systems and sustainable technology.
+      Committed to R&D that bridges the gap between intelligent machines and real-world impact.
+      Currently completing my BSc in Robotics at Falmouth University, with ambitions to pioneer the next generation of responsible, adaptive robotics.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="mailto:adithijay123@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-scroll">Scroll to explore</div>
+    <div class="hero-badge"><span>Robotics<br>&amp;<br>AI Systems</span></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">01 — About</div>
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img src="images/me.jpg" alt="Adithi Jayaraman" />
+        <div class="about-tag">BSc Robotics<br>Falmouth University<br>Graduating Jun 2026</div>
+      </div>
+      <div class="about-text reveal">
+        <h2 class="section-title">Little <br> About <em style="font-style:italic;color:var(--accent)">Me</em>.</h2>
+        <p>
+        I am a final year Robotics Engineering student with hands-on expertise in ROS2, reinforcement 
+        learning, computer vision, and hardware/software integration. My passion lies in research and 
+        development, designing intelligent systems that bridge the gap between cutting-edge AI and 
+        real-world robotics.
+      </p>
+      <p>
+        From gesture-controlled robotic arms to RL-driven autonomous platforms, my work spans the full 
+        development pipeline. I am particularly drawn to projects where engineering and research 
+        intersect, building technology that is not only intelligent but purposeful and sustainable.
+      </p>
+      <p>
+        My dissertation explores AI-driven robotic control, simulating a UR7e robotic arm navigating 
+        narrow mazes in Gazebo using Q-Learning and PPO, benchmarking autonomous performance against 
+        human operation.
+      </p>
+      <p class="availability">
+        Based in Falmouth, UK. Indian citizen, actively seeking graduate opportunities 
+        and open to EP sponsorship and international relocation.
+      </p>
+        <div class="skills-chips">
+          <span class="chip">Python</span><span class="chip">C++</span>
+          <span class="chip">ROS2</span><span class="chip">Gazebo</span>
+          <span class="chip">Webots</span><span class="chip">OpenCV</span>
+          <span class="chip">MediaPipe</span><span class="chip">Reinforcement Learning</span>
+          <span class="chip">Fusion 360</span><span class="chip">Raspberry Pi</span>
+          <span class="chip">ODrive</span><span class="chip">KiCAD</span>
+          <span class="chip">MATLAB</span><span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">02 — Projects</div>
+    <h2 class="section-title reveal">Selected work.</h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card reveal">
+      <div class="project-arrow">→</div>
+      <div class="project-thumb">
+        <video autoplay muted loop playsinline>
+          <source src="images/solaris.mp4" type="video/mp4" />
+        </video>
+      </div>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">MediaPipe</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">Fusion 360</span>
+        </div>
+        <h3 class="project-title">SOLARIS — Gesture-Controlled Robotic Arm</h3>
+        <p class="project-desc">
+          Designed and built a 3-DOF robotic arm controlled via real-time hand-gesture
+          tracking, converting live pose data into low-latency motor commands.
+          Full mechanical structure engineered in Fusion 360.
+        </p>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal">
+        <div class="project-arrow">→</div>
+        <div class="project-thumb">
+          <img src="images/arm.png" alt="Simulation Demo" />
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">ROS2</span>
+          <span class="project-tag">Gazebo</span>
+          <span class="project-tag">Q-Learning</span>
+          <span class="project-tag">PPO</span>
+        </div>
+        <h3 class="project-title">Autonomous Robotic Arm Navigation</h3>
+        <p class="project-desc">
+          Dissertation project: RL-based control for a UR7e navigating narrow mazes in Gazebo.
+          Benchmarks AI autonomous performance vs. human control to advance sim-to-real
+          manipulation research.
+        </p>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal">
+        <div class="project-arrow">→</div>
+        <div class="project-thumb">
+          <img src="images/hri.jpeg" alt="Elderly Care Robot" />
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Reinforcement Learning</span>
+          <span class="project-tag">Embedded Systems</span>
+          <span class="project-tag">Behaviour Policy</span>
+        </div>
+        <h3 class="project-title">Companion Assistive Robot — Elderly Care</h3>
+        <p class="project-desc">
+          Soft, personalised companion robot that adapts movement, sound, and haptic
+          responses via RL. Embedded touch &amp; proximity sensors drive a behaviour
+          policy that learns individual interaction patterns.
+        </p>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal">
+        <div class="project-arrow">→</div>
+        <div class="project-thumb">
+          <img src="images/profile.jpg" alt="Warthog Field Robot" />
+        </div>
+        <div class="project-tags">
+          <span class="project-tag">Raspberry Pi</span>
+          <span class="project-tag">ODrive</span>
+          <span class="project-tag">ROS2</span>
+          <span class="project-tag">Teleoperation</span>
+        </div>
+        <h3 class="project-title">Warthog-Inspired Field Robot Platform</h3>
+        <p class="project-desc">
+          Ruggedised animatronic field robot for research in Africa — integrating high-torque
+          ODrive actuators, Raspberry Pi, and radio remote operation. Powered scissor-lift
+          for payload transport.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">03 — Experience</div>
+    <h2 class="section-title">Where I've<br>worked.</h2>
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-date">Jul 2025 – Present</div>
+        <div>
+          <div class="exp-role">Development &amp; Prototyping Intern → Part-Time Engineer</div>
+          <div class="exp-company">Ungraded · Falmouth, UK</div>
+          <p class="exp-body">
+            Built a hardware/software prototype to automate part of an internal imaging workflow (NDA).
+            Extended into a part-time role contributing to sensor integration, iterative design,
+            and testing in a fast-paced R&amp;D environment.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">Jun 2024 – Present</div>
+        <div>
+          <div class="exp-role">Senior Student Ambassador</div>
+          <div class="exp-company">Falmouth University · Falmouth, UK</div>
+          <p class="exp-body">
+            Mentored a team of ambassadors, led planning of open days and campus events.
+            Communicated complex engineering programmes to prospective students, parents,
+            and industry partners.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-date">2023 – Present</div>
+        <div>
+          <div class="exp-role">Robotics Course Representative &amp; Society Secretary</div>
+          <div class="exp-company">Falmouth University · Falmouth, UK</div>
+          <p class="exp-body">
+            Elected peer representative liaising between students and faculty. Managed
+            Robotics Society operations — coordinating technical workshops, project showcases,
+            and cross-disciplinary networking events.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">04 — Contact</div>
+    <h2 class="section-title">Let's build<br>something.</h2>
+    <p class="contact-sub">
+      Seeking for full-time roles, internships, and research oppurtunities.
+      Available for EP sponsorship &amp; relocation.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:adithijay123@gmail.com" class="contact-link">✉ adithijay123@gmail.com</a>
+      <a href="https://www.linkedin.com/in/adithi-jayaraman-a21583153/" target="_blank" class="contact-link">↗ LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Adithi Jayaraman</span>
+    <span>Robotics Engineer · Falmouth, UK</span>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+      ring.style.left   = e.clientX + 'px';
+      ring.style.top    = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button, .project-card, .chip').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '20px'; cursor.style.height = '20px';
+        ring.style.width = '56px'; ring.style.height = '56px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '10px'; cursor.style.height = '10px';
+        ring.style.width = '36px'; ring.style.height = '36px';
+      });
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => obs.observe(r));
+
+    // Active nav link highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
