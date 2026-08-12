@@ -1,6 +1,6 @@
 # PID Controller Tuner
 
-An interactive PID gain tuning simulator built in Python. Tune proportional, integral, and derivative gains in real time against two physical systems — a nonlinear pendulum and a drone altitude controller — and observe the effect on step response, error, control signal, and phase portrait simultaneously.
+An interactive PID gain tuning simulator built in Python. Tune proportional, integral, and derivative gains in real time against two physical systems, a nonlinear pendulum and a drone altitude controller, and observe the effect on step response, error, control signal, and phase portrait simultaneously.
 
 Built as part of a robotics engineering portfolio to demonstrate practical understanding of closed-loop control, system dynamics, and stability analysis.
 
