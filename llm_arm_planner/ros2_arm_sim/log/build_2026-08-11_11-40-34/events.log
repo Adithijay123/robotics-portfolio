@@ -1,0 +1,186 @@
+[0.000000] (-) TimerEvent: {}
+[0.000422] (arm_interfaces) JobQueued: {'identifier': 'arm_interfaces', 'dependencies': OrderedDict()}
+[0.000715] (arm_sim) JobQueued: {'identifier': 'arm_sim', 'dependencies': OrderedDict([('arm_interfaces', '/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/install/arm_interfaces')])}
+[0.000993] (arm_interfaces) JobStarted: {'identifier': 'arm_interfaces'}
+[0.030245] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'cmake'}
+[0.062705] (arm_interfaces) Command: {'cmd': ['/usr/bin/cmake', '/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/arm_interfaces', '-DCMAKE_INSTALL_PREFIX=/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/install/arm_interfaces'], 'cwd': '/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/build/arm_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'adithijay'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/adithijay'), ('OLDPWD', '/home/adithijay'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'adithijay'), ('NAME', 'Ubuntu'), ('WSL_INTEROP', '/run/WSL/344_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Program Files/CMake/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/DELL/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/DELL/.dotnet/tools:/mnt/c/Users/adith/vcpkg:/mnt/c/Program Files (x86)/Nmap'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/build/arm_interfaces'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', ''), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.098300] (-) TimerEvent: {}
+[0.132583] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/share/cmake-3.22/Modules/CMakeDetermineSystem.cmake:193 (configure_file):\n'}
+[0.133680] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[0.134757] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.135661] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:2 (project)\n'}
+[0.136471] (arm_interfaces) StderrLine: {'line': b'\n'}
+[0.137298] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[0.198551] (-) TimerEvent: {}
+[0.299243] (-) TimerEvent: {}
+[0.335534] (arm_interfaces) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.399348] (-) TimerEvent: {}
+[0.499826] (-) TimerEvent: {}
+[0.513618] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/share/cmake-3.22/Modules/CMakeDetermineCCompiler.cmake:226 (configure_file):\n'}
+[0.515039] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[0.515884] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.516787] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:2 (project)\n'}
+[0.517658] (arm_interfaces) StderrLine: {'line': b'\n'}
+[0.518510] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[0.599946] (-) TimerEvent: {}
+[0.700471] (-) TimerEvent: {}
+[0.739885] (arm_interfaces) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.800625] (-) TimerEvent: {}
+[0.901330] (-) TimerEvent: {}
+[1.001990] (-) TimerEvent: {}
+[1.005197] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/share/cmake-3.22/Modules/CMakeDetermineCXXCompiler.cmake:226 (configure_file):\n'}
+[1.007428] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[1.008645] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.009885] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:2 (project)\n'}
+[1.011075] (arm_interfaces) StderrLine: {'line': b'\n'}
+[1.012314] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[1.025703] (arm_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.102137] (-) TimerEvent: {}
+[1.202896] (-) TimerEvent: {}
+[1.303734] (-) TimerEvent: {}
+[1.404417] (-) TimerEvent: {}
+[1.505309] (-) TimerEvent: {}
+[1.606060] (-) TimerEvent: {}
+[1.706673] (-) TimerEvent: {}
+[1.779706] (arm_interfaces) StdoutLine: {'line': b'-- Detecting C compiler ABI info - failed\n'}
+[1.785566] (arm_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.806795] (-) TimerEvent: {}
+[1.907315] (-) TimerEvent: {}
+[2.007946] (-) TimerEvent: {}
+[2.108497] (-) TimerEvent: {}
+[2.209194] (-) TimerEvent: {}
+[2.304227] (arm_interfaces) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - works\n'}
+[2.308046] (arm_interfaces) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.308992] (arm_interfaces) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.309983] (-) TimerEvent: {}
+[2.336894] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:85 (configure_file):\n'}
+[2.337821] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[2.338734] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[2.340208] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:2 (project)\n'}
+[2.341079] (arm_interfaces) StderrLine: {'line': b'\n'}
+[2.341811] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[2.350660] (arm_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.410091] (-) TimerEvent: {}
+[2.510686] (-) TimerEvent: {}
+[2.611245] (-) TimerEvent: {}
+[2.711800] (-) TimerEvent: {}
+[2.812335] (-) TimerEvent: {}
+[2.860656] (arm_interfaces) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - failed\n'}
+[2.864192] (arm_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[2.912436] (-) TimerEvent: {}
+[3.012956] (-) TimerEvent: {}
+[3.113488] (-) TimerEvent: {}
+[3.217168] (-) TimerEvent: {}
+[3.317573] (-) TimerEvent: {}
+[3.349695] (arm_interfaces) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - works\n'}
+[3.354948] (arm_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[3.356086] (arm_interfaces) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[3.385237] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /usr/share/cmake-3.22/Modules/CMakeTestCXXCompiler.cmake:78 (configure_file):\n'}
+[3.386109] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[3.387205] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.387943] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:2 (project)\n'}
+[3.388736] (arm_interfaces) StderrLine: {'line': b'\n'}
+[3.389587] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[3.397392] (arm_interfaces) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[3.417743] (-) TimerEvent: {}
+[3.518337] (-) TimerEvent: {}
+[3.580225] (arm_interfaces) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[3.605098] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):\n'}
+[3.606397] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[3.607348] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.608689] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_package_templates-extras.cmake:24 (stamp)\n'}
+[3.610197] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[3.611528] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[3.613054] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[3.614698] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:8 (find_package)\n'}
+[3.616209] (arm_interfaces) StderrLine: {'line': b'\n'}
+[3.618138] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[3.619757] (-) TimerEvent: {}
+[3.720468] (-) TimerEvent: {}
+[3.743133] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_uninstall_target-extras.cmake:28 (configure_file):\n'}
+[3.744993] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[3.746570] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.748056] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)\n'}
+[3.749424] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)\n'}
+[3.750846] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[3.751988] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:8 (find_package)\n'}
+[3.753243] (arm_interfaces) StderrLine: {'line': b'\n'}
+[3.754277] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[3.802451] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_test/cmake/ament_cmake_test-extras.cmake:34 (configure_file):\n'}
+[3.803672] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[3.804737] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.805959] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_test/cmake/ament_cmake_testConfig.cmake:41 (include)\n'}
+[3.807010] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[3.808141] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)\n'}
+[3.809510] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:8 (find_package)\n'}
+[3.810766] (arm_interfaces) StderrLine: {'line': b'\n'}
+[3.812220] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[3.813563] (arm_interfaces) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.1 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[3.817559] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.820567] (-) TimerEvent: {}
+[3.825023] (arm_interfaces) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.920657] (-) TimerEvent: {}
+[3.937926] (arm_interfaces) StderrLine: {'line': b'\x1b[33mCMake Warning at /opt/ros/humble/share/rcutils/cmake/ament_cmake_export_libraries-extras.cmake:116 (message):\n'}
+[3.939264] (arm_interfaces) StderrLine: {'line': b"  Package 'rcutils' exports library 'dl' which couldn't be found\n"}
+[3.940657] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.942098] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rcutils/cmake/rcutilsConfig.cmake:41 (include)\n'}
+[3.943137] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_runtime_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[3.943861] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_runtime_c/cmake/rosidl_runtime_cConfig.cmake:41 (include)\n'}
+[3.944683] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[3.945689] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_typesupport_fastrtps_c/cmake/rosidl_typesupport_fastrtps_cConfig.cmake:41 (include)\n'}
+[3.946512] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_typesupport_c/cmake/rosidl_typesupport_c-extras.cmake:13 (find_package)\n'}
+[3.947328] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_typesupport_c/cmake/rosidl_typesupport_cConfig.cmake:41 (include)\n'}
+[3.948101] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_default_generators/cmake/rosidl_default_generators-extras.cmake:21 (find_package)\n'}
+[3.948880] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_default_generators/cmake/rosidl_default_generatorsConfig.cmake:41 (include)\n'}
+[3.949664] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:9 (find_package)\n'}
+[3.950459] (arm_interfaces) StderrLine: {'line': b'\n'}
+[3.951309] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[3.959626] (arm_interfaces) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.003776] (arm_interfaces) StdoutLine: {'line': b'-- Found action_msgs: 1.2.3 (/opt/ros/humble/share/action_msgs/cmake)\n'}
+[4.020745] (-) TimerEvent: {}
+[4.046115] (arm_interfaces) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.2 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[4.118167] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):\n'}
+[4.119757] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[4.121387] (-) TimerEvent: {}
+[4.121901] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.123311] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:104 (stamp)\n'}
+[4.124694] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:13 (rosidl_generate_interfaces)\n'}
+[4.126158] (arm_interfaces) StderrLine: {'line': b'\n'}
+[4.127467] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[4.163144] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):\n'}
+[4.164513] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[4.165763] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.166879] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:104 (stamp)\n'}
+[4.168075] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:13 (rosidl_generate_interfaces)\n'}
+[4.168990] (arm_interfaces) StderrLine: {'line': b'\n'}
+[4.170086] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[4.221553] (-) TimerEvent: {}
+[4.322232] (-) TimerEvent: {}
+[4.422836] (-) TimerEvent: {}
+[4.523496] (-) TimerEvent: {}
+[4.556424] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/stamp.cmake:24 (configure_file):\n'}
+[4.557353] (arm_interfaces) StderrLine: {'line': b'  Operation not permitted\n'}
+[4.558219] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.559077] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:73 (stamp)\n'}
+[4.559951] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)\n'}
+[4.560777] (arm_interfaces) StderrLine: {'line': b'  /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:226 (ament_package_xml)\n'}
+[4.561729] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:13 (rosidl_generate_interfaces)\n'}
+[4.562673] (arm_interfaces) StderrLine: {'line': b'\n'}
+[4.563547] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[4.564403] (arm_interfaces) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:229 (message):\n'}
+[4.565427] (arm_interfaces) StderrLine: {'line': b'  Packages installing interfaces must include\n'}
+[4.566432] (arm_interfaces) StderrLine: {'line': b"  '<member_of_group>rosidl_interface_packages</member_of_group>' in their\n"}
+[4.567647] (arm_interfaces) StderrLine: {'line': b'  package.xml\n'}
+[4.571296] (arm_interfaces) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[4.572237] (arm_interfaces) StderrLine: {'line': b'  CMakeLists.txt:13 (rosidl_generate_interfaces)\n'}
+[4.573112] (arm_interfaces) StderrLine: {'line': b'\n'}
+[4.574004] (arm_interfaces) StderrLine: {'line': b'\x1b[0m\n'}
+[4.574866] (arm_interfaces) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[4.575728] (arm_interfaces) StdoutLine: {'line': b'See also "/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/build/arm_interfaces/CMakeFiles/CMakeOutput.log".\n'}
+[4.576583] (arm_interfaces) StdoutLine: {'line': b'See also "/mnt/c/Users/adith/Desktop/robotics-portfolio/llm_arm_planner/ros2_arm_sim/build/arm_interfaces/CMakeFiles/CMakeError.log".\n'}
+[4.581796] (arm_interfaces) CommandEnded: {'returncode': 1}
+[4.623589] (-) TimerEvent: {}
+[4.720584] (arm_interfaces) JobEnded: {'identifier': 'arm_interfaces', 'rc': 1}
+[4.736117] (-) TimerEvent: {}
+[4.736806] (arm_sim) JobSkipped: {'identifier': 'arm_sim'}
+[4.737581] (-) EventReactorShutdown: {}

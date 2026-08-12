@@ -1,0 +1,14 @@
+# Goal: target end-effector position
+float64 x
+float64 y
+float64 z
+---
+# Result
+bool success
+string message
+---
+# Feedback: current position while moving (linear interpolation)
+float64 current_x
+float64 current_y
+float64 current_z
+float64 progress
