@@ -1,6 +1,6 @@
 # Adithi Jayaraman — Portfolio
 
-First Class Honours graduate in Robotics (Falmouth University, July 2026), building end-to-end robotics systems, from mechanical design through control software to statistically validated, hardware-grounded results — at the intersection of perception, sensor fusion, reinforcement learning, and autonomous systems.
+First Class Honours graduate in Robotics (Falmouth University, July 2026), building end-to-end robotics systems, from mechanical design through control software to statistically validated, hardware-grounded results, at the intersection of perception, sensor fusion, reinforcement learning, and autonomous systems.
 
 [LinkedIn](https://www.linkedin.com/in/adithi-jayaraman-a21583153/)
 
@@ -94,6 +94,6 @@ Across all of these systems, my instinct has been the same, do not trust simulat
 
 Professionally, I have worked as a development and prototyping intern at Ungraded, contributing to a confidential imaging and automation system, and continuing part-time alongside my studies. I am comfortable working across the hardware-software boundary, maintaining technical documentation, and iterating quickly in R&D environments.
 
-**Core skills:** Python · C++ · ROS2 · MuJoCo · Gazebo · OpenCV · MediaPipe · Reinforcement Learning · Raspberry Pi · Fusion 360 · Git . Scrum . CAD . PCB/Electronic Development 
+**Core skills:** Python · C++ · ROS2 · MuJoCo · Gazebo · OpenCV · MediaPipe · Reinforcement Learning · Raspberry Pi · Fusion 360 · Git · Scrum · CAD · PCB/Electronic Development 
 
 Open to full-time roles and internships in robotics, autonomy, and systems engineering  and other research opportunities.
