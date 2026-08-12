@@ -57,6 +57,16 @@ A soft, personalised companion robot for elderly and assistive care, adapting mo
 [View project](./HRI_smushie/)
 
 ---
+### PID Controller Tuner
+An interactive PID gain tuning simulator built from first principles, controlling two nonlinear physical systems, a damped pendulum and a 1D drone altitude controller, in real time. Visualises step response, control signal, error, and phase portrait simultaneously, with quantitative performance metrics (rise time, overshoot, settling time, steady-state error) computed automatically from the simulated response.
+
+**Stack:** Python, NumPy, Matplotlib
+**Physics:** Nonlinear equations of motion (pendulum dynamics, 1D thrust-limited altitude), Euler integration, actuator saturation, integral anti-windup
+**Demonstrates:** Closed-loop control tuning, system stability analysis via phase portraits, disturbance rejection
+
+[View project](./pid_tuner/)
+
+---
 
 ### IMU Activity Classifier
 Classifies human activities from raw accelerometer and gyroscope data using hand-crafted time-domain and frequency-domain features. Covers the full pipeline from raw sensor windows to trained model inference.
