@@ -1,0 +1,2 @@
+trial,timestamp,algorithm,collisions,completion_time_s,wp2_time_s,wp3_time_s,goal_reached,timeout,notes
+2,2026-03-24 10:27:28,hardcoded,7,10.592,2.665,6.454,1,0,

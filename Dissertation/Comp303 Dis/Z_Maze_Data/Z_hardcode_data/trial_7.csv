@@ -1,0 +1,2 @@
+trial,timestamp,algorithm,maze,collisions,completion_time_s,goal_reached,timeout,notes
+7,2026-03-24 15:06:20,hardcoded,Z,3,14.4,1,0,

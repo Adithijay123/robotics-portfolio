@@ -1,0 +1,79 @@
+﻿Session,Date,Evidance,Objective,Property
+Idea 1 SPV 1,"October 2, 2025",,Spoek about my diss idea with jospeh and risk assessment,Spv
+"Matt meeting ","October 8, 2025",,"Had a session with matt to ask about the robotic labs robotic arm and the software it uses model and feedback about my research path ",Meetings
+"Research Question 1 ","October 6, 2025",,"In the lecture looked into how to form a RQ and formed my first version of RQ in the workshop session. ","Lec/Wrks, Rq"
+Research Literature Review 1,"October 9, 2025",,"Went though AI navigation robotic arm papers, framed a vague methodology and re made my rq to be more precise","Notes, Rq, Self"
+Research philosophies meanings,"October 14, 2025",,"went through the research philosophy and figured out my stance and meaning of all the words ",Notes
+Research Philosophy typedout V1,"October 14, 2025",,"typed out and justified how i would want it in the proposal document ",Self
+"Proposal layout ","October 14, 2025",,"Read the example document an make a list of document into a checklist ","Notes, Self"
+"Hypothesis  ","October 20, 2025",,"Make an hypothesis ","Lec/Wrks, Rq"
+"method/ experiment layout brainstorming ","October 21, 2025",,"trying to frame the method in rough and find method to improve it ","Notes, Self"
+Week 6 Ethics form and docs,"October 30, 2025","COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Consent_Form_Template_Dis.pdf, COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Participant_Information_form.pdf, COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/risk_assessment_dis.pdf, COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Robotic_research_project_participation.pdf","Filled the risk assessment form, made the consent form and filled the word doc for what level risk it is","Notes, Self, Video/Photo"
+"Week 7 - Sensor research ","November 6, 2025",COMP302%20-%20303%20DEVLOG/Week%207%20-%20Sensor%20research/Acadamic_Research_Document_Sample_(2).pdf,"researched on sensor types and ordered 2 that i would like to test so can prototype into my end effector ","Notes, Self"
+"Week 8 -  Gpower and Hypothesis ","November 11, 2025",,"Used Gpower to find the sample size needed. ",Notes
+Week 9 - Literature Review Expansion,"November 17, 2025",,"Extended lit review with PPO vs Q-Learning comparisons, tactile sensing papers, sim-to-real transfer","Lec/Wrks, Notes, Self"
+Q-Learning Prototype V1,"November 22, 2025",COMP302%20-%20303%20DEVLOG/Q-Learning%20Prototype%20V1/Q_Learning_Maze_navigation_script.mp4,Implemented basic Q-Learning maze navigation in Python with collision tracking,"Lec/Wrks, Notes"
+Pygame Visualization Added,"November 25, 2025",,added real-time visualization to prototype for demonstration,Self
+Piezo Sensor Setup,"November 28, 2025","COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/sensor.jpg, COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/Sensor_to_csv.py, COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/Pizoceramic_sensor.ino","tried wiring piezoelectric sensor to Arduino Nano,","Notes, Self"
+Proposal Document,"December 1, 2025",,"Continued working on background and lit ",Notes
+Prototype Integration,"November 27, 2025",,Combined Q-Learning script with data logging CSV export for analysis,"Notes, Self"
+Final Spv documentation notes,"December 3, 2025",,Reviewed current doucment gave pointers that were implimented,"Notes, Spv"
+"Pivoted Research a bit ","November 13, 2025",,Re-Reading and collecting more papers that make sense to the new method,"Notes, Self, Spv"
+Gpower Part 2 correction,,,,"Notes, Self, screenshot"
+"Project management ","December 6, 2025",COMP302%20-%20303%20DEVLOG/Project%20management/Gantt_Chart_Proposal.png,"Made gantt chart and typed out the project management section ",Notes
+Test plan and validation and verification documentation,"December 8, 2025",,"Made the validation verfication diagram after comp304 workshop to make it more robotics based ","Notes, Self"
+Ethics section redo,"November 15, 2025",,"Made the ethics section a bit simpler to work for a low risk research ","Self, Spv, screenshot"
+,,COMP302%20-%20303%20DEVLOG/Untitled%202ee0-895a/comp303_plan_.docx,"COMP303 STARITING FROM HERE ",
+"Ros2 Download, Gazibo setup, learn basics ","January 25, 2026",,Get comfortable with ROS2 and launch a basic UR7e in Gazebo.,Self
+"Fixing and implementing feedback changes from proposal ","January 20, 2026",,"Was said that my secondary hypothesis was framed wrong and that secondary hypothesis is not the breakdown of the primary hypothesis ",Self
+"gazebo and rivz arm up and running ","January 27, 2026",,Get UR7e arm spawning in Gazebo for dissertation maze nav,Self
+"Fixed errors, implimented dependencies, can see ur7e in gazebo and rivz","February 1, 2026",,Resolved setup errors and implemented missing ROS2 dependencies for the UR7e robotic arm simulation.,"Notes, Self"
+"set environment, learn maze implementation ","February 4, 2026",,Integrated the UR7e robotic arm model with the Gazebo simulation environment and configured RViz for motion visualization.,"Notes, Self"
+ ROS2 UR7e Table Setup,"February 5, 2026",," Establish baseline ROS2 simulation environment with UR7e arm and table per proposal",Self
+"Maze ","February 7, 2026",," Create standardized 3D printable maze matching proposal specs (narrow corridors stressing UR7e kinematics)
+",Self
+ ROS2/Gazebo Maze Integration,"February 9, 2026",,Import maze STL into Gazebo alongside UR7e+table for complete sim environment,Self
+Review & Documentation,"February 11, 2026",,"Clarify questions on proposal feedback introduction and hypothesis ","Meetings, Notes, screenshot"
+Webots Simulator Migration,"February 13, 2026",,Pivot to Webots for stable sim environment,Self
+Webots Basic Controller,"February 16, 2026",,Implement minimal functional controller proving end-to-end prototype,"Notes, Self, Video/Photo"
+"Data analysis and reporting ","February 24, 2026",,"lec session notes ",Lec/Wrks
+Physical Maze Design Complete (Fusion360),"February 20, 2026",,Make the actual 3d maze that can be printed for testing - import this maze into current simulation,"Self, screenshot"
+Webots UR7e Maze Simulation Setup,"February 25, 2026",,"Configure Webots world with UR7e arm, piezo end-effector physics and bounding object","Self, screenshot"
+"Ur7e arm induction session ","March 2, 2026",,"Learn the basic control of the arm and get inducted on controling the arm and running a basic script ","Meetings, Self, Video/Photo"
+"Downloaded VirtualBox tried fixing error ","March 4, 2026",,"Since it was not implementing over my windows, downloading and setting up a Linux system ",Self
+Re-edited the maze,"March 6, 2026",,"increased extrusion thickness, so its more printing friendly ","Self, screenshot"
+"Ittirating Gripper, sensor holder","March 9, 2026",,"Made a holder that slots onto the gippe rend, and has a slit to hold the pizoelectric sensor sheet. ",Self
+"Simulation, arm movement data collection - q learning basic ","March 10, 2026",,"Make and test a basic Qlearning code and check is the table is produced correctly, fixs all errors",Self
+"Piezoelectric and nano connection work with python, plan and test","March 11, 2026",,"Change code from pizo Arduino uno to nano and test with serial monitor and plotter, to make sure it works, additionally test with the end effector holder as well ",Self
+ai stuff,"March 12, 2026",,,Self
+Bot Q-Learning simulation test runs T1–T20,"March 13, 2026",,"Run the finalized q learning script form simulation for t1-t20, get the data, and make a cleaned csv with the needed data, for processing.","Self, Video/Photo"
+"printed maze ","March 14, 2026",,"Make, resize and print the maze, test the corridor sizing to make sure it is narrow ","Self, Video/Photo"
+"Maze working with PPO, code logic integration","March 15, 2026",,"Make PPO script with the same consents as Q-learning, using Schulman’s logic and test it out","Self, Video/Photo"
+"Reprint connector for arm: Revised design 2 ","March 16, 2026",,"Model the new idea and make a test print to find out the issues, try testing with the sensor for sizing ",Self
+" PPO simulation trial runs T1–T20","March 17, 2026",,"Run the PPO script in webots, 20 times and record and clean the finalized data for simulation",Self
+Reprint connector for arm revised design 3,"March 18, 2026",,"Re print and finalize the end effector with the sensor and test with the actual arm ","Notes, Self, Video/Photo"
+Pandas- Qlearning and PPO best trained trial,"March 19, 2026",,"Load Q-Learning and PPO trial CSVs into pandas, identify the best performing trained run from each algorithm and export a cleaned master CSV ready for R analysis",Self
+"Test on hardware ","March 20, 2026",,"Mount the finalised end effector on the UR7e, run low-speed safety tests through both maze geometries and confirm the arm moves correctly within the workspace","Self, Video/Photo"
+"mujoco L cooridor ","March 20, 2026",,Build and test an L-shaped corridor in MuJoCo XML as an intermediate geometry between U and Z to check whether the navigation issue is topology-dependent,"Self, Video/Photo"
+MuJoCo real arm working CSV,"March 21, 2026",,Confirm the hardware logger scripts produce valid CSVs with correct column schema after the first full hardware test session,"Self, Video/Photo"
+simql umaze working,"March 22, 2026",,"Confirm Q-Learning is navigating the U-maze successfully in MuJoCo, review the rolling success rate curve and verify convergence is stable before running the full 20 trial set","Final, Self, Video/Photo"
+"pivot in dis ","March 21, 2026",,Document the sim environment pivot from Webots to MuJoCo in the dev log and update the dissertation methodology section to reflect the final architecture and change in maze,"Final, Meetings, Notes, Spv"
+test trial with partial L maze,"March 23, 2026",,Run physical arm trials through the L-shaped LEGO maze configuration to check whether the piezo sensor detects contacts correctly before committing to U and Z geometry runs,"Final, Self, screenshot"
+"test with U maze arm pizo ","March 24, 2026",,"Run the first full hardware test with the UR7e through the U-maze with the piezo sensor active, confirm collision events are logged correctly and ADC threshold is calibrated","Final, Self, Video/Photo"
+20 hardware pizo umaze,"March 24, 2026",,"Execute all 20 hardware baseline trials on the U-maze, log collision counts and completion times to U_Maze_Data, verify all 20 rows are clean in the CSV","Final, Self, Video/Photo"
+Z staircase maze ql,"March 26, 2026",,"Run Q-Learning in the Z-maze MuJoCo environment for 500 episodes, review the learning curve and confirm whether convergence is achievable within the episode budget","Final, Self, Video/Photo"
+"ppo u maze sim ","March 28, 2026",,"Run PPO in the U-maze for the full 500-episode training run, monitor for convergence and record the final trial data","Final, Self, Video/Photo"
+ppo u maze 20 trials,"March 29, 2026",,"Execute all 20 PPO evaluation trials in the U-maze, log results and verify the data is consistent with the training curve","Final, Self, screenshot"
+Data eval ql and ppo sim,"March 30, 2026",,"Run the full R analysis script across all four simulation conditions, check all hypothesis test outputs are valid and export the final figures","Final, Notes, Self"
+20 trials ql zmaze,"March 27, 2026",,"Execute all 20 Q-Learning evaluation trials in the Z-maze, log results and confirm the CSV is clean and complete before moving to PPO trials","Final, Self, screenshot"
+ppo zmaze,"March 27, 2026",,Run PPO in the Z-maze MuJoCo environment for 500 episodes and compare the learning curve against Q-Learning to assess whether either algorithm solves the multi-turn topology,"Final, Self, Video/Photo"
+"ppo zmaze 20 trials ","March 29, 2026",,Execute all 20 PPO evaluation trials in the Z-maze and confirm all four simulation conditions are now fully collected and exported,"Final, Self, screenshot"
+"Unit tests  reward logic,  Q-table, network","March 24, 2026",,"Write and run all 26 unit tests covering reward function outputs against known states, PPO observation vector shape and normalisation bounds, ActorCritic output tensor shapes, and Q-table Bellman update correctness ","Final, Self, screenshot"
+Smoke tests Q-Learning and PPO training loop,"March 25, 2026",,"Write and run 11 smoke tests to confirm both agents train for 10 episodes in the mock environment without errors, with finite rewards, decaying epsilon, and evolving loss ","Final, Self, screenshot"
+"Integration tests CSV logging ","March 26, 2026",,"Write and run 26 integration tests covering trial CSV creation, column schema validation, episode summary logging, Q-table pickle serialisation and reload, and PPO model state dict save and reload","Final, Self, screenshot"
+Piezo sensor bench validation,"March 23, 2026",,"Run 5 bench trials manually inducing known contacts on the LEGO wall at trial speed, confirm 100% detection agreement between Arduino serial output and manual observation, verify baseline ADC is 0–2 and collision events are 51–427","Final, Notes, Self"
+20 hardware baseline Z-maze,"March 24, 2026",," 31Execute all 20 hardware baseline trials on the Z-maze, log collision counts and completion times to Z_Maze_Data and confirm hardware_master.csv is complete with 40 rows total across both mazes","Final, Notes, Self, Video/Photo"
+"Documentation Writing and editing the dissertation ","April 1, 2026 → April 12, 2026",,"Wrote all sections of the dissertation across this period introduction, background, literature review, methods, results, discussion, conclusion, ethics, and reflective addendum.","Final, screenshot"
+"Appendices, README and final repository commit","April 13, 2026 → April 18, 2026",,"Completed all appendices including hyperparameter tables, waypoint coordinates, G*Power output, V&V diagram and engineering drawing. Wrote and pushed the final README. Confirmed all code is clean, figures are numbered, and repository is submission-ready.","Final, screenshot"
+"ql u maze 20 trials ",,,"Execute all 20 ql evaluation trials in the U-maze, log results and verify the data is consistent with the training curve","Final, Self, Video/Photo"
+,,,,

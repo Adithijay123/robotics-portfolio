@@ -1,0 +1,743 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>COMP302 - 303 DEVLOG</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2780f7ec-c39f-8060-a85a-d674024fd7f9" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_11.jpg" style="object-position:center 40%"/><h1 class="page-title" dir="auto">COMP302 - 303 DEVLOG</h1><p class="page-description" dir="auto">Development Log for modules 302 and 303- please open each update, for evidence and updates !!</p></header><div class="page-body"><div class="collection-content-wrapper"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><img src="https://www.notion.so/icons/cursor-click_gray.svg" style="width:14px;height:14px;display:block"/></span>Property</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/send_gray.svg" style="width:14px;height:14px;display:block"/></span>Session</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/bullseye_gray.svg" style="width:14px;height:14px;display:block"/></span>Objective</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>Date</th><th><span class="icon property-icon"><img src="https://www.notion.so/icons/attachment_gray.svg" style="width:14px;height:14px;display:block"/></span>Evidance</th></tr></thead><tbody><tr id="2870f7ec-c39f-8037-bbec-d976711b5aa9"><td class="cell-;^HA"><span class="selected-value select-value-color-gray">Spv</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Idea%201%20SPV%201%202870f7ecc39f8037bbecd976711b5aa9.html">Idea 1 SPV 1</a></td><td class="cell-=bIA">Spoek about my diss idea with jospeh and risk assessment</td><td class="cell-~vq&lt;"><time>October 2, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2870f7ec-c39f-802f-a4c1-ee69c07c48ed"><td class="cell-;^HA"><span class="selected-value select-value-color-orange">Meetings</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Matt%20meeting%202870f7ecc39f802fa4c1ee69c07c48ed.html">Matt meeting </a></td><td class="cell-=bIA">Had a session with matt to ask about the robotic labs robotic arm and the software it uses model and feedback about my research path </td><td class="cell-~vq&lt;"><time>October 8, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2870f7ec-c39f-8099-b6ad-cfd469933351"><td class="cell-;^HA"><span class="selected-value select-value-color-blue">Lec/Wrks</span><span class="selected-value select-value-color-brown">Rq</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Research%20Question%201%202870f7ecc39f8099b6adcfd469933351.html">Research Question 1 </a></td><td class="cell-=bIA">In the lecture looked into how to form a RQ and formed my first version of RQ in the workshop session. </td><td class="cell-~vq&lt;"><time>October 6, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2870f7ec-c39f-806a-b13a-da73cda293a3"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-brown">Rq</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Research%20Literature%20Review%201%202870f7ecc39f806ab13ada73cda293a3.html">Research Literature Review 1</a></td><td class="cell-=bIA">Went though AI navigation robotic arm papers, framed a vague methodology and re made my rq to be more precise</td><td class="cell-~vq&lt;"><time>October 9, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="28c0f7ec-c39f-805c-a71d-f1e9d04c8fec"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Research%20philosophies%20meanings%2028c0f7ecc39f805ca71df1e9d04c8fec.html">Research philosophies meanings</a></td><td class="cell-=bIA">went through the research philosophy and figured out my stance and meaning of all the words </td><td class="cell-~vq&lt;"><time>October 14, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="28c0f7ec-c39f-8061-8cb4-f8d90866cc26"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Research%20Philosophy%20typedout%20V1%2028c0f7ecc39f80618cb4f8d90866cc26.html">Research Philosophy typedout V1</a></td><td class="cell-=bIA">typed out and justified how i would want it in the proposal document </td><td class="cell-~vq&lt;"><time>October 14, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="28c0f7ec-c39f-804e-a113-e0b1f3c39376"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Proposal%20layout%2028c0f7ecc39f804ea113e0b1f3c39376.html">Proposal layout </a></td><td class="cell-=bIA">Read the example document an make a list of document into a checklist </td><td class="cell-~vq&lt;"><time>October 14, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2920f7ec-c39f-80e9-8f42-de3d6cb54518"><td class="cell-;^HA"><span class="selected-value select-value-color-blue">Lec/Wrks</span><span class="selected-value select-value-color-brown">Rq</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Hypothesis%202920f7ecc39f80e98f42de3d6cb54518.html">Hypothesis  </a></td><td class="cell-=bIA">Make an hypothesis </td><td class="cell-~vq&lt;"><time>October 20, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2930f7ec-c39f-8070-b6e3-e04b0aec64ab"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/method%20experiment%20layout%20brainstorming%202930f7ecc39f8070b6e3e04b0aec64ab.html">method/ experiment layout brainstorming </a></td><td class="cell-=bIA">trying to frame the method in rough and find method to improve it </td><td class="cell-~vq&lt;"><time>October 21, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="29a0f7ec-c39f-80e8-8aae-e2a5798da707"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs%2029a0f7ecc39f80e88aaee2a5798da707.html">Week 6 Ethics form and docs</a></td><td class="cell-=bIA">Filled the risk assessment form, made the consent form and filled the word doc for what level risk it is</td><td class="cell-~vq&lt;"><time>October 30, 2025</time></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Consent_Form_Template_Dis.pdf">Consent Form Template Dis.pdf</a></span><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Participant_Information_form.pdf">Participant Information form.pdf</a></span><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/risk_assessment_dis.pdf">risk assessment dis.pdf</a></span><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Week%206%20Ethics%20form%20and%20docs/Robotic_research_project_participation.pdf">Robotic research project participation.pdf</a></span></td></tr><tr id="2a30f7ec-c39f-803b-94d5-d81541717878"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Week%207%20-%20Sensor%20research%202a30f7ecc39f803b94d5d81541717878.html">Week 7 - Sensor research </a></td><td class="cell-=bIA">researched on sensor types and ordered 2 that i would like to test so can prototype into my end effector </td><td class="cell-~vq&lt;"><time>November 6, 2025</time></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Week%207%20-%20Sensor%20research/Acadamic_Research_Document_Sample_(2).pdf">Acadamic Research Document Sample (2).pdf</a></span></td></tr><tr id="2a30f7ec-c39f-80cb-9afe-deaf6ac23be8"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Week%208%20-%20Gpower%20and%20Hypothesis%202a30f7ecc39f80cb9afedeaf6ac23be8.html">Week 8 -  Gpower and Hypothesis </a></td><td class="cell-=bIA">Used Gpower to find the sample size needed. </td><td class="cell-~vq&lt;"><time>November 11, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2c20f7ec-c39f-8097-8174-f5af5cbe725d"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Gpower%20Part%202%20correction%202c20f7ecc39f80978174f5af5cbe725d.html">Gpower Part 2 correction</a></td><td class="cell-=bIA"></td><td class="cell-~vq&lt;"></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-8064-92a4-e13fe51a1501"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-gray">Spv</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Pivoted%20Research%20a%20bit%202bf0f7ecc39f806492a4e13fe51a1501.html">Pivoted Research a bit </a></td><td class="cell-=bIA">Re-Reading and collecting more papers that make sense to the new method</td><td class="cell-~vq&lt;"><time>November 13, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2c70f7ec-c39f-80ef-abe6-cac00b27507e"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-gray">Spv</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Ethics%20section%20redo%202c70f7ecc39f80efabe6cac00b27507e.html">Ethics section redo</a></td><td class="cell-=bIA">Made the ethics section a bit simpler to work for a low risk research </td><td class="cell-~vq&lt;"><time>November 15, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-80f6-9890-f0583d5531c6"><td class="cell-;^HA"><span class="selected-value select-value-color-blue">Lec/Wrks</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Week%209%20-%20Literature%20Review%20Expansion%202bf0f7ecc39f80f69890f0583d5531c6.html">Week 9 - Literature Review Expansion</a></td><td class="cell-=bIA">Extended lit review with PPO vs Q-Learning comparisons, tactile sensing papers, sim-to-real transfer</td><td class="cell-~vq&lt;"><time>November 17, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-8097-a2c1-f134986e1473"><td class="cell-;^HA"><span class="selected-value select-value-color-blue">Lec/Wrks</span><span class="selected-value select-value-color-pink">Notes</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Q-Learning%20Prototype%20V1%202bf0f7ecc39f8097a2c1f134986e1473.html">Q-Learning Prototype V1</a></td><td class="cell-=bIA">Implemented basic Q-Learning maze navigation in Python with collision tracking</td><td class="cell-~vq&lt;"><time>November 22, 2025</time></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Q-Learning%20Prototype%20V1/Q_Learning_Maze_navigation_script.mp4">Q Learning Maze navigation script.mp4</a></span></td></tr><tr id="2bf0f7ec-c39f-80e6-831c-ff68cd5fcae2"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Pygame%20Visualization%20Added%202bf0f7ecc39f80e6831cff68cd5fcae2.html">Pygame Visualization Added</a></td><td class="cell-=bIA">added real-time visualization to prototype for demonstration</td><td class="cell-~vq&lt;"><time>November 25, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-80e1-b32d-f6c2d2ec0de3"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Prototype%20Integration%202bf0f7ecc39f80e1b32df6c2d2ec0de3.html">Prototype Integration</a></td><td class="cell-=bIA">Combined Q-Learning script with data logging CSV export for analysis</td><td class="cell-~vq&lt;"><time>November 27, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-8000-90ae-cc388964ff00"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup%202bf0f7ecc39f800090aecc388964ff00.html">Piezo Sensor Setup</a></td><td class="cell-=bIA">tried wiring piezoelectric sensor to Arduino Nano,</td><td class="cell-~vq&lt;"><time>November 28, 2025</time></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/sensor.jpg"><img style="width:20px;max-height:24px" src="COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/sensor.jpg" alt="sensor.jpg"/></a></span><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/Sensor_to_csv.py">Sensor to csv.py</a></span><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Piezo%20Sensor%20Setup/Pizoceramic_sensor.ino">Pizoceramic_sensor.ino</a></span></td></tr><tr id="2bf0f7ec-c39f-808a-b593-c77f8a6bce85"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Proposal%20Document%202bf0f7ecc39f808ab593c77f8a6bce85.html">Proposal Document</a></td><td class="cell-=bIA">Continued working on background and lit </td><td class="cell-~vq&lt;"><time>December 1, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2bf0f7ec-c39f-80f8-981a-d953914b0055"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-gray">Spv</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Final%20Spv%20documentation%20notes%202bf0f7ecc39f80f8981ad953914b0055.html">Final Spv documentation notes</a></td><td class="cell-=bIA">Reviewed current doucment gave pointers that were implimented</td><td class="cell-~vq&lt;"><time>December 3, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="2c70f7ec-c39f-802b-91b4-c02e3f5ed5ca"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Project%20management%202c70f7ecc39f802b91b4c02e3f5ed5ca.html">Project management </a></td><td class="cell-=bIA">Made gantt chart and typed out the project management section </td><td class="cell-~vq&lt;"><time>December 6, 2025</time></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Project%20management/Gantt_Chart_Proposal.png"><img style="width:20px;max-height:24px" src="COMP302%20-%20303%20DEVLOG/Project%20management/Gantt_Chart_Proposal.png" alt="Gantt Chart Proposal.png"/></a></span></td></tr><tr id="2c70f7ec-c39f-8040-97be-f5cbbc62adbc"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Test%20plan%20and%20validation%20and%20verification%20document%202c70f7ecc39f804097bef5cbbc62adbc.html">Test plan and validation and verification documentation</a></td><td class="cell-=bIA">Made the validation verfication diagram after comp304 workshop to make it more robotics based </td><td class="cell-~vq&lt;"><time>December 8, 2025</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-8033-90fa-d5d1bb43a7e6"><td class="cell-;^HA"></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Untitled%203480f7ecc39f803390fad5d1bb43a7e6.html">Untitled</a></td><td class="cell-=bIA"></td><td class="cell-~vq&lt;"></td><td class="cell-zOVo"></td></tr><tr id="2ee0f7ec-c39f-80b6-9ab6-c388b6ea895a"><td class="cell-;^HA"></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Untitled%202ee0f7ecc39f80b69ab6c388b6ea895a.html">Untitled</a></td><td class="cell-=bIA"><mark class="highlight-default"><mark class="highlight-teal_background"><strong>COMP303 STARITING FROM HERE </strong></mark></mark></td><td class="cell-~vq&lt;"></td><td class="cell-zOVo"><span style="margin-inline-end:6px"><a href="COMP302%20-%20303%20DEVLOG/Untitled%202ee0-895a/comp303_plan_.docx">comp303 plan .docx</a></span></td></tr><tr id="2f60f7ec-c39f-807d-9bea-f695aa34efce"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Fixing%20and%20implementing%20feedback%20changes%20from%20prop%202f60f7ecc39f807d9beaf695aa34efce.html">Fixing and implementing feedback changes from proposal </a></td><td class="cell-=bIA">Was said that my secondary hypothesis was framed wrong and that secondary hypothesis is not the breakdown of the primary hypothesis </td><td class="cell-~vq&lt;"><time>January 20, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="2ee0f7ec-c39f-804b-8cf7-d4247f7ace59"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Ros2%20Download,%20Gazibo%20setup,%20learn%20basics%202ee0f7ecc39f804b8cf7d4247f7ace59.html">Ros2 Download, Gazibo setup, learn basics </a></td><td class="cell-=bIA">Get comfortable with ROS2 and launch a basic UR7e in Gazebo.</td><td class="cell-~vq&lt;"><time>January 25, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="2f70f7ec-c39f-8018-8c94-fc52333acab8"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/gazebo%20and%20rivz%20arm%20up%20and%20running%202f70f7ecc39f80188c94fc52333acab8.html">gazebo and rivz arm up and running </a></td><td class="cell-=bIA">Get UR7e arm spawning in Gazebo for dissertation maze nav</td><td class="cell-~vq&lt;"><time>January 27, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="2fd0f7ec-c39f-8076-9569-f668b6d41661"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Fixed%20errors,%20implimented%20dependencies,%20can%20see%20ur%202fd0f7ecc39f80769569f668b6d41661.html">Fixed errors, implimented dependencies, can see ur7e in gazebo and rivz</a></td><td class="cell-=bIA">Resolved setup errors and implemented missing ROS2 dependencies for the UR7e robotic arm simulation.</td><td class="cell-~vq&lt;"><time>February 1, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="2fe0f7ec-c39f-80e9-98ca-ec8982afff5c"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/set%20environment,%20learn%20maze%20implementation%202fe0f7ecc39f80e998caec8982afff5c.html">set environment, learn maze implementation </a></td><td class="cell-=bIA">Integrated the UR7e robotic arm model with the Gazebo simulation environment and configured RViz for motion visualization.</td><td class="cell-~vq&lt;"><time>February 4, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-80cc-9cfd-cf1ea6605f09"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ROS2%20UR7e%20Table%20Setup%2030c0f7ecc39f80cc9cfdcf1ea6605f09.html"> ROS2 UR7e Table Setup</a></td><td class="cell-=bIA"> Establish baseline ROS2 simulation environment with UR7e arm and table per proposal</td><td class="cell-~vq&lt;"><time>February 5, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-8026-ad40-e4d61f585431"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Maze%2030c0f7ecc39f8026ad40e4d61f585431.html">Maze </a></td><td class="cell-=bIA"> Create standardized 3D printable maze matching proposal specs (narrow corridors stressing UR7e kinematics)<br/></td><td class="cell-~vq&lt;"><time>February 7, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-803d-bb61-ee0c7dcf2dd7"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ROS2%20Gazebo%20Maze%20Integration%2030c0f7ecc39f803dbb61ee0c7dcf2dd7.html"> ROS2/Gazebo Maze Integration</a></td><td class="cell-=bIA">Import maze STL into Gazebo alongside UR7e+table for complete sim environment</td><td class="cell-~vq&lt;"><time>February 9, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-80c3-b6bd-fbebe1198656"><td class="cell-;^HA"><span class="selected-value select-value-color-orange">Meetings</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Review%20&amp;%20Documentation%2030c0f7ecc39f80c3b6bdfbebe1198656.html">Review &amp; Documentation</a></td><td class="cell-=bIA">Clarify questions on proposal feedback introduction and hypothesis </td><td class="cell-~vq&lt;"><time>February 11, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-8022-a91c-df358fdfd777"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Webots%20Simulator%20Migration%2030c0f7ecc39f8022a91cdf358fdfd777.html">Webots Simulator Migration</a></td><td class="cell-=bIA">Pivot to Webots for stable sim environment</td><td class="cell-~vq&lt;"><time>February 13, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="30c0f7ec-c39f-802d-bbe8-e41176c52d37"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Webots%20Basic%20Controller%2030c0f7ecc39f802dbbe8e41176c52d37.html">Webots Basic Controller</a></td><td class="cell-=bIA">Implement minimal functional controller proving end-to-end prototype</td><td class="cell-~vq&lt;"><time>February 16, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3130f7ec-c39f-807c-82a5-d22404f76e6f"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Physical%20Maze%20Design%20Complete%20(Fusion360)%203130f7ecc39f807c82a5d22404f76e6f.html">Physical Maze Design Complete (Fusion360)</a></td><td class="cell-=bIA">Make the actual 3d maze that can be printed for testing - import this maze into current simulation</td><td class="cell-~vq&lt;"><time>February 20, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3110f7ec-c39f-80bf-bfbd-df2425a1b3a9"><td class="cell-;^HA"><span class="selected-value select-value-color-blue">Lec/Wrks</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Data%20analysis%20and%20reporting%203110f7ecc39f80bfbfbddf2425a1b3a9.html">Data analysis and reporting </a></td><td class="cell-=bIA">lec session notes </td><td class="cell-~vq&lt;"><time>February 24, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3130f7ec-c39f-80e2-832c-f84e512f17da"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Webots%20UR7e%20Maze%20Simulation%20Setup%203130f7ecc39f80e2832cf84e512f17da.html">Webots UR7e Maze Simulation Setup</a></td><td class="cell-=bIA">Configure Webots world with UR7e arm, piezo end-effector physics and bounding object</td><td class="cell-~vq&lt;"><time>February 25, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3180f7ec-c39f-80fc-adc2-fb7a2c72f204"><td class="cell-;^HA"><span class="selected-value select-value-color-orange">Meetings</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Ur7e%20arm%20induction%20session%203180f7ecc39f80fcadc2fb7a2c72f204.html">Ur7e arm induction session </a></td><td class="cell-=bIA">Learn the basic control of the arm and get inducted on controling the arm and running a basic script </td><td class="cell-~vq&lt;"><time>March 2, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31a0f7ec-c39f-808d-bbc4-e0aaf810fd46"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Downloaded%20VirtualBox%20tried%20fixing%20error%2031a0f7ecc39f808dbbc4e0aaf810fd46.html">Downloaded VirtualBox tried fixing error </a></td><td class="cell-=bIA">Since it was not implementing over my windows, downloading and setting up a Linux system </td><td class="cell-~vq&lt;"><time>March 4, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31f0f7ec-c39f-809f-abac-df799406701e"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Re-edited%20the%20maze%2031f0f7ecc39f809fabacdf799406701e.html">Re-edited the maze</a></td><td class="cell-=bIA">increased extrusion thickness, so its more printing friendly </td><td class="cell-~vq&lt;"><time>March 6, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31f0f7ec-c39f-8015-beb2-e9511c5fa2e6"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Ittirating%20Gripper,%20sensor%20holder%2031f0f7ecc39f8015beb2e9511c5fa2e6.html">Ittirating Gripper, sensor holder</a></td><td class="cell-=bIA">Made a holder that slots onto the gippe rend, and has a slit to hold the pizoelectric sensor sheet. </td><td class="cell-~vq&lt;"><time>March 9, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31f0f7ec-c39f-8008-9ba7-e2dc23d58839"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Simulation,%20arm%20movement%20data%20collection%20-%20q%20learn%2031f0f7ecc39f80089ba7e2dc23d58839.html">Simulation, arm movement data collection - q learning basic </a></td><td class="cell-=bIA">Make and test a basic Qlearning code and check is the table is produced correctly, fixs all errors</td><td class="cell-~vq&lt;"><time>March 10, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31f0f7ec-c39f-808b-b6d8-c15b16f5a8fe"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Piezoelectric%20and%20nano%20connection%20work%20with%20python%2031f0f7ecc39f808bb6d8c15b16f5a8fe.html">Piezoelectric and nano connection work with python, plan and test</a></td><td class="cell-=bIA">Change code from pizo Arduino uno to nano and test with serial monitor and plotter, to make sure it works, additionally test with the end effector holder as well </td><td class="cell-~vq&lt;"><time>March 11, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="31f0f7ec-c39f-801d-a5d6-fecce7076b18"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ai%20stuff%2031f0f7ecc39f801da5d6fecce7076b18.html">ai stuff</a></td><td class="cell-=bIA"></td><td class="cell-~vq&lt;"><time>March 12, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3210f7ec-c39f-803e-87b5-e3a5adc83ec0"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Bot%20Q-Learning%20simulation%20test%20runs%20T1%E2%80%93T20%203210f7ecc39f803e87b5e3a5adc83ec0.html">Bot Q-Learning simulation test runs T1–T20</a></td><td class="cell-=bIA">Run the finalized q learning script form simulation for t1-t20, get the data, and make a cleaned csv with the needed data, for processing.</td><td class="cell-~vq&lt;"><time>March 13, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3210f7ec-c39f-80f8-9ddc-e53d8fbdefe1"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/printed%20maze%203210f7ecc39f80f89ddce53d8fbdefe1.html">printed maze </a></td><td class="cell-=bIA">Make, resize and print the maze, test the corridor sizing to make sure it is narrow </td><td class="cell-~vq&lt;"><time>March 14, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3220f7ec-c39f-8042-afea-c2b81824ba4b"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Maze%20working%20with%20PPO,%20code%20logic%20integration%203220f7ecc39f8042afeac2b81824ba4b.html">Maze working with PPO, code logic integration</a></td><td class="cell-=bIA">Make PPO script with the same consents as Q-learning, using Schulman’s logic and test it out</td><td class="cell-~vq&lt;"><time>March 15, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3270f7ec-c39f-80d7-bbd0-e466e1de043a"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Reprint%20connector%20for%20arm%20Revised%20design%202%203270f7ecc39f80d7bbd0e466e1de043a.html">Reprint connector for arm: Revised design 2 </a></td><td class="cell-=bIA">Model the new idea and make a test print to find out the issues, try testing with the sensor for sizing </td><td class="cell-~vq&lt;"><time>March 16, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3270f7ec-c39f-80fe-8ba6-d26d14e0a3c3"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/PPO%20simulation%20trial%20runs%20T1%E2%80%93T20%203270f7ecc39f80fe8ba6d26d14e0a3c3.html"> PPO simulation trial runs T1–T20</a></td><td class="cell-=bIA">Run the PPO script in webots, 20 times and record and clean the finalized data for simulation</td><td class="cell-~vq&lt;"><time>March 17, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3270f7ec-c39f-80d7-b27d-d32279531e4b"><td class="cell-;^HA"><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Reprint%20connector%20for%20arm%20revised%20design%203%203270f7ecc39f80d7b27dd32279531e4b.html">Reprint connector for arm revised design 3</a></td><td class="cell-=bIA">Re print and finalize the end effector with the sensor and test with the actual arm </td><td class="cell-~vq&lt;"><time>March 18, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3280f7ec-c39f-80e8-ba07-daaa159b8256"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Pandas-%20Qlearning%20and%20PPO%20best%20trained%20trial%203280f7ecc39f80e8ba07daaa159b8256.html">Pandas- Qlearning and PPO best trained trial</a></td><td class="cell-=bIA">Load Q-Learning and PPO trial CSVs into pandas, identify the best performing trained run from each algorithm and export a cleaned master CSV ready for R analysis</td><td class="cell-~vq&lt;"><time>March 19, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3280f7ec-c39f-80f3-9586-c6526287318d"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Test%20on%20hardware%203280f7ecc39f80f39586c6526287318d.html">Test on hardware </a></td><td class="cell-=bIA">Mount the finalised end effector on the UR7e, run low-speed safety tests through both maze geometries and confirm the arm moves correctly within the workspace</td><td class="cell-~vq&lt;"><time>March 20, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="32a0f7ec-c39f-80dd-b458-dc83229d59ee"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/mujoco%20L%20cooridor%2032a0f7ecc39f80ddb458dc83229d59ee.html">mujoco L cooridor </a></td><td class="cell-=bIA">Build and test an L-shaped corridor in MuJoCo XML as an intermediate geometry between U and Z to check whether the navigation issue is topology-dependent</td><td class="cell-~vq&lt;"><time>March 20, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="32c0f7ec-c39f-8071-bce3-c64024e84c7a"><td class="cell-;^HA"><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/MuJoCo%20real%20arm%20working%20CSV%2032c0f7ecc39f8071bce3c64024e84c7a.html">MuJoCo real arm working CSV</a></td><td class="cell-=bIA">Confirm the hardware logger scripts produce valid CSVs with correct column schema after the first full hardware test session</td><td class="cell-~vq&lt;"><time>March 21, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-8093-a4c5-d057e069d2a0"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-orange">Meetings</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-gray">Spv</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/pivot%20in%20dis%203320f7ecc39f8093a4c5d057e069d2a0.html">pivot in dis </a></td><td class="cell-=bIA">Document the sim environment pivot from Webots to MuJoCo in the dev log and update the dissertation methodology section to reflect the final architecture and change in maze</td><td class="cell-~vq&lt;"><time>March 21, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-80d3-964e-ff52e39d99e8"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/simql%20umaze%20working%203320f7ecc39f80d3964eff52e39d99e8.html">simql umaze working</a></td><td class="cell-=bIA">Confirm Q-Learning is navigating the U-maze successfully in MuJoCo, review the rolling success rate curve and verify convergence is stable before running the full 20 trial set</td><td class="cell-~vq&lt;"><time>March 22, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-80d2-8bc5-e8783e9d4801"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/test%20trial%20with%20partial%20L%20maze%203320f7ecc39f80d28bc5e8783e9d4801.html">test trial with partial L maze</a></td><td class="cell-=bIA">Run physical arm trials through the L-shaped LEGO maze configuration to check whether the piezo sensor detects contacts correctly before committing to U and Z geometry runs</td><td class="cell-~vq&lt;"><time>March 23, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-80da-ac82-f67fba4d5aa6"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Piezo%20sensor%20bench%20validation%203480f7ecc39f80daac82f67fba4d5aa6.html">Piezo sensor bench validation</a></td><td class="cell-=bIA">Run 5 bench trials manually inducing known contacts on the LEGO wall at trial speed, confirm 100% detection agreement between Arduino serial output and manual observation, verify baseline ADC is 0–2 and collision events are 51–427</td><td class="cell-~vq&lt;"><time>March 23, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-80b3-9528-d00f6ae55751"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/test%20with%20U%20maze%20arm%20pizo%203320f7ecc39f80b39528d00f6ae55751.html">test with U maze arm pizo </a></td><td class="cell-=bIA">Run the first full hardware test with the UR7e through the U-maze with the piezo sensor active, confirm collision events are logged correctly and ADC threshold is calibrated</td><td class="cell-~vq&lt;"><time>March 24, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-80d9-9fc4-d8ea4cc37e18"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/20%20hardware%20pizo%20umaze%203320f7ecc39f80d99fc4d8ea4cc37e18.html">20 hardware pizo umaze</a></td><td class="cell-=bIA">Execute all 20 hardware baseline trials on the U-maze, log collision counts and completion times to U_Maze_Data, verify all 20 rows are clean in the CSV</td><td class="cell-~vq&lt;"><time>March 24, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-800b-b3a1-e9a6a03e4ac7"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/20%20hardware%20baseline%20Z-maze%203480f7ecc39f800bb3a1e9a6a03e4ac7.html">20 hardware baseline Z-maze</a></td><td class="cell-=bIA"> 31Execute all 20 hardware baseline trials on the Z-maze, log collision counts and completion times to Z_Maze_Data and confirm hardware_master.csv is complete with 40 rows total across both mazes</td><td class="cell-~vq&lt;"><time>March 24, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-8064-ab17-f57021006ecf"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Unit%20tests%20reward%20logic,%20Q-table,%20network%203480f7ecc39f8064ab17f57021006ecf.html">Unit tests  reward logic,  Q-table, network</a></td><td class="cell-=bIA">Write and run all 26 unit tests covering reward function outputs against known states, PPO observation vector shape and normalisation bounds, ActorCritic output tensor shapes, and Q-table Bellman update correctness </td><td class="cell-~vq&lt;"><time>March 24, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-808e-b47b-dcd1948ef38f"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Smoke%20tests%20Q-Learning%20and%20PPO%20training%20loop%203480f7ecc39f808eb47bdcd1948ef38f.html">Smoke tests Q-Learning and PPO training loop</a></td><td class="cell-=bIA">Write and run 11 smoke tests to confirm both agents train for 10 episodes in the mock environment without errors, with finite rewards, decaying epsilon, and evolving loss </td><td class="cell-~vq&lt;"><time>March 25, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-80d5-965e-d49abbfb2089"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Integration%20tests%20CSV%20logging%203480f7ecc39f80d5965ed49abbfb2089.html">Integration tests CSV logging </a></td><td class="cell-=bIA">Write and run 26 integration tests covering trial CSV creation, column schema validation, episode summary logging, Q-table pickle serialisation and reload, and PPO model state dict save and reload</td><td class="cell-~vq&lt;"><time>March 26, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3320f7ec-c39f-80c3-89e8-cdc8c313432c"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Z%20staircase%20maze%20ql%203320f7ecc39f80c389e8cdc8c313432c.html">Z staircase maze ql</a></td><td class="cell-=bIA">Run Q-Learning in the Z-maze MuJoCo environment for 500 episodes, review the learning curve and confirm whether convergence is achievable within the episode budget</td><td class="cell-~vq&lt;"><time>March 26, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-8008-a596-d1537c5f3fab"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ppo%20zmaze%203330f7ecc39f8008a596d1537c5f3fab.html">ppo zmaze</a></td><td class="cell-=bIA">Run PPO in the Z-maze MuJoCo environment for 500 episodes and compare the learning curve against Q-Learning to assess whether either algorithm solves the multi-turn topology</td><td class="cell-~vq&lt;"><time>March 27, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-80e6-94d3-ce6321b4c260"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/20%20trials%20ql%20zmaze%203330f7ecc39f80e694d3ce6321b4c260.html">20 trials ql zmaze</a></td><td class="cell-=bIA">Execute all 20 Q-Learning evaluation trials in the Z-maze, log results and confirm the CSV is clean and complete before moving to PPO trials</td><td class="cell-~vq&lt;"><time>March 27, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-80f4-aa95-f73b98e3208f"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ppo%20u%20maze%20sim%203330f7ecc39f80f4aa95f73b98e3208f.html">ppo u maze sim </a></td><td class="cell-=bIA">Run PPO in the U-maze for the full 500-episode training run, monitor for convergence and record the final trial data</td><td class="cell-~vq&lt;"><time>March 28, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-8049-8aea-e9c70f31f080"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ppo%20u%20maze%2020%20trials%203330f7ecc39f80498aeae9c70f31f080.html">ppo u maze 20 trials</a></td><td class="cell-=bIA">Execute all 20 PPO evaluation trials in the U-maze, log results and verify the data is consistent with the training curve</td><td class="cell-~vq&lt;"><time>March 29, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-807d-bc51-feb58536ecf1"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-purple">Video/Photo</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ql%20u%20maze%2020%20trials%203480f7ecc39f807dbc51feb58536ecf1.html">ql u maze 20 trials </a></td><td class="cell-=bIA">Execute all 20 ql evaluation trials in the U-maze, log results and verify the data is consistent with the training curve</td><td class="cell-~vq&lt;"></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-8018-b58c-d8710102d620"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-yellow">Self</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/ppo%20zmaze%2020%20trials%203330f7ecc39f8018b58cd8710102d620.html">ppo zmaze 20 trials </a></td><td class="cell-=bIA">Execute all 20 PPO evaluation trials in the Z-maze and confirm all four simulation conditions are now fully collected and exported</td><td class="cell-~vq&lt;"><time>March 29, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3330f7ec-c39f-8044-96d2-e3fc6bc42ab4"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-pink">Notes</span><span class="selected-value select-value-color-yellow">Self</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Data%20eval%20ql%20and%20ppo%20sim%203330f7ecc39f804496d2e3fc6bc42ab4.html">Data eval ql and ppo sim</a></td><td class="cell-=bIA">Run the full R analysis script across all four simulation conditions, check all hypothesis test outputs are valid and export the final figures</td><td class="cell-~vq&lt;"><time>March 30, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-80cd-99c5-ee0477178047"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Documentation%20Writing%20and%20editing%20the%20dissertation%203480f7ecc39f80cd99c5ee0477178047.html">Documentation Writing and editing the dissertation </a></td><td class="cell-=bIA">Wrote all sections of the dissertation across this period introduction, background, literature review, methods, results, discussion, conclusion, ethics, and reflective addendum.</td><td class="cell-~vq&lt;"><time>April 1, 2026 → April 12, 2026</time></td><td class="cell-zOVo"></td></tr><tr id="3480f7ec-c39f-8057-a096-c4e4260c482e"><td class="cell-;^HA"><span class="selected-value select-value-color-green">Final</span><span class="selected-value select-value-color-red">screenshot</span></td><td class="cell-title"><a href="COMP302%20-%20303%20DEVLOG/Appendices,%20README%20and%20final%20repository%20commit%203480f7ecc39f8057a096c4e4260c482e.html">Appendices, README and final repository commit</a></td><td class="cell-=bIA">Completed all appendices including hyperparameter tables, waypoint coordinates, G*Power output, V&amp;V diagram and engineering drawing. Wrote and pushed the final README. Confirmed all code is clean, figures are numbered, and repository is submission-ready.</td><td class="cell-~vq&lt;"><time>April 13, 2026 → April 18, 2026</time></td><td class="cell-zOVo"></td></tr></tbody></table></div><br/><br/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
